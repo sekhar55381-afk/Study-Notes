@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Dashboard | Study Notes Hub</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .dashboard {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .welcome-box {
+      padding: 30px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .welcome-box h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .dashboard-title {
+      margin: 30px 0 18px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .dash-card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      border: 1px solid #eeeeee;
+    }
+
+    .dash-card .icon {
+      font-size: 35px;
+    }
+
+    .dash-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .dash-card p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .dash-btn {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 9px;
+      background: #4f46e5;
+      color: white;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .logout-btn {
+      background: #dc2626;
+    }
+
+    .profile-box {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 25px;
+      border: 1px solid #eeeeee;
+      overflow-wrap: anywhere;
+    }
+
+    .status-message {
+      padding: 15px;
+      border-radius: 10px;
+      background: #fef3c7;
+      color: #92400e;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 500px) {
+      .welcome-box {
+        padding: 22px;
+      }
+
+      .welcome-box h1 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+
+      <a href="index.html" class="logo">
+         Study Notes <span>Hub</span>
+      </a>
+
+      <button id="logoutButton" class="dash-btn logout-btn">
+        Logout
+      </button>
+
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <section class="welcome-box">
+
+      <h1>Welcome, Student! </h1>
+
+      <p>
+        Welcome to your Study Notes Hub dashboard.
+      </p>
+
+      <p id="studentEmail">Checking your account...</p>
+
+    </section>
+
+    <h2 class="dashboard-title"> Choose Your Class</h2>
+
+    <section class="dashboard-grid">
+
+      <article class="dash-card">
+
+        <div class="icon"></div>
+
+        <h3>Class 10th</h3>
+
+        <p>
+          Find study notes and important questions
+          for your Class 10 board examination.
+        </p>
+
+        <a href="notes.html" class="dash-btn">
+          Explore Class 10 Notes
+        </a>
+
+      </article>
+
+      <article class="dash-card">
+
+        <div class="icon"></div>
+
+        <h3>Class 12th</h3>
+
+        <p>
+          Explore Physics, Chemistry, Maths and
+          other subject study materials.
+        </p>
+
+        <a href="notes.html" class="dash-btn">
+          Explore Class 12 Notes
+        </a>
+
+      </article>
+
+      <article class="dash-card">
+
+        <div class="icon"></div>
+
+        <h3>BA</h3>
+
+        <p>
+          Discover notes and learning materials
+          for BA students.
+        </p>
+
+        <a href="notes.html" class="dash-btn">
+          Explore BA Notes
+        </a>
+
+      </article>
+
+    </section>
+
+    <h2 class="dashboard-title"> Study Materials</h2>
+
+    <section class="dashboard-grid">
+
+      <article class="dash-card">
+
+        <div class="icon"></div>
+
+        <h3>Free Notes</h3>
+
+        <p>
+          Explore free study materials available
+          on our website.
+        </p>
+
+        <a href="notes.html" class="dash-btn">
+          View Free Notes
+        </a>
+
+      </article>
+
+      <article class="dash-card">
+
+        <div class="icon"></div>
+
+        <h3>Premium Notes</h3>
+
+        <p>
+          Explore premium notes and their prices.
+        </p>
+
+        <a href="notes.html" class="dash-btn">
+          View Premium Notes
+        </a>
+
+      </article>
+
+    </section>
+
+    <section class="profile-box">
+
+      <h2> My Account</h2>
+
+      <p><strong>Email:</strong></p>
+
+      <p id="profileEmail">Loading...</p>
+
+      <button id="logoutButton2" class="dash-btn logout-btn">
+        Logout from Account
+      </button>
+
+    </section>
+
+    <div id="dashboardMessage" class="status-message">
+      Your dashboard is loading...
+    </div>
+
+  </main>
+
+  <footer class="footer">
+
+    <div class="container">
+      <h2> Study Notes Hub</h2>
+      <p>Study smart. Keep learning.</p>
+    </div>
+
+  </footer>
+
+  <script type="module" src="dashboard.js"></script>
+
+</body>
+</html>

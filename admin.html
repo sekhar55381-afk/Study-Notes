@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Admin Panel | Study Notes Hub</title>
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+  <header class="admin-header">
+    <a href="index.html" class="brand">
+      📚 Study Notes <span>Hub</span>
+    </a>
+
+    <a href="index.html" class="back-link">← View Website</a>
+  </header>
+
+  <main class="admin-container">
+
+    <section class="welcome">
+      <span class="eyebrow">WEBSITE MANAGEMENT</span>
+      <h1>Admin Dashboard</h1>
+      <p>Manage your study notes and website resources.</p>
+    </section>
+
+    <section id="loginSection" class="panel">
+      <div class="panel-icon">🔐</div>
+
+      <h2>Admin Login</h2>
+
+      <p class="muted">
+        Sign in with an authorized administrator account.
+      </p>
+
+      <form id="adminLoginForm">
+
+        <label for="adminEmail">Email Address</label>
+        <input
+          type="email"
+          id="adminEmail"
+          placeholder="Enter admin email"
+          autocomplete="username"
+          required
+        >
+
+        <label for="adminPassword">Password</label>
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" id="loginButton">
+          Sign In
+        </button>
+
+        <p id="loginMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="dashboardSection" class="dashboard" hidden>
+
+      <div class="admin-topbar">
+        <div>
+          <h2>Welcome, Admin 👋</h2>
+          <p id="adminEmailDisplay" class="muted"></p>
+        </div>
+
+        <button type="button" id="logoutButton" class="logout-button">
+          Sign Out
+        </button>
+      </div>
+
+      <div class="stats-grid">
+
+        <article class="stat-card">
+          <span>📚</span>
+          <p>Total Notes</p>
+          <h3 id="totalNotes">4</h3>
+        </article>
+
+        <article class="stat-card">
+          <span>🆓</span>
+          <p>Free Notes</p>
+          <h3 id="freeNotes">2</h3>
+        </article>
+
+        <article class="stat-card">
+          <span>⭐</span>
+          <p>Premium Notes</p>
+          <h3 id="premiumNotes">2</h3>
+        </article>
+
+      </div>
+
+      <section class="panel">
+        <h2>Notes Management</h2>
+
+        <p class="muted">
+          Current demo catalogue. PDF upload and database management
+          are not connected yet.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Notes Name</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+
+            <tbody id="notesTableBody">
+              <tr>
+                <td>Class 10 Science Notes</td>
+                <td>Class 10</td>
+                <td><span class="free-label">Free</span></td>
+                <td>Free</td>
+              </tr>
+
+              <tr>
+                <td>Class 12 Physics Notes</td>
+                <td>Class 12</td>
+                <td><span class="premium-label">Premium</span></td>
+                <td>₹49</td>
+              </tr>
+
+              <tr>
+                <td>Class 12 Chemistry Notes</td>
+                <td>Class 12</td>
+                <td><span class="free-label">Free</span></td>
+                <td>Free</td>
+              </tr>
+
+              <tr>
+                <td>BA History Notes</td>
+                <td>BA</td>
+                <td><span class="premium-label">Premium</span></td>
+                <td>₹99</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Upload Study Material</h2>
+
+        <p class="muted">
+          This feature will be connected to secure cloud storage
+          in the next step.
+        </p>
+
+        <div class="upload-placeholder">
+          <span>📄</span>
+          <h3>PDF Upload Coming Next</h3>
+          <p>
+            Actual PDF upload, storage and access permissions
+            have not been configured yet.
+          </p>
+        </div>
+      </section>
+
+      <p id="dashboardMessage" class="message" role="status"></p>
+
+    </section>
+
+  </main>
+
+  <footer class="admin-footer">
+    <p>© <span id="currentYear"></span> Study Notes Hub</p>
+  </footer>
+
+  <script type="module" src="admin.js"></script>
+
+</body>
+</html>

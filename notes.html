@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notes Library | Study Notes Hub</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f7ff;
+      color: #172033;
+      font-family: Arial, sans-serif;
+    }
+
+    .library {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 16px 50px;
+    }
+
+    .library-hero {
+      background: linear-gradient(135deg, #4338ca, #7c3aed);
+      color: white;
+      padding: 30px 22px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+    }
+
+    .library-hero h1 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+
+    .library-hero p {
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .search-box {
+      margin: 25px 0 15px;
+    }
+
+    .search-box input,
+    .filters select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d8dce8;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .section-heading {
+      margin: 30px 0 18px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .note-card {
+      background: white;
+      border: 1px solid #e4e7f0;
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .note-icon {
+      font-size: 35px;
+    }
+
+    .note-card h3 {
+      margin: 13px 0 10px;
+    }
+
+    .note-card p {
+      color: #64748b;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .free {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .premium {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .note-button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 9px;
+      background: #4f46e5;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .note-button.premium-button {
+      background: #111827;
+    }
+
+    .empty-message {
+      display: none;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+      color: #64748b;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .library-hero h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        📚 Study Notes <span>Hub</span>
+      </a>
+
+      <a href="dashboard.html" class="back-link">
+        My Dashboard
+      </a>
+    </div>
+  </header>
+
+  <main class="library">
+
+    <a href="dashboard.html" class="back-link">
+      ← Back to Dashboard
+    </a>
+
+    <section class="library-hero">
+      <h1>📚 Notes Library</h1>
+      <p>
+        Find your study materials by class, subject
+        and note type.
+      </p>
+    </section>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="🔍 Search Physics, Maths, History..."
+        aria-label="Search notes"
+      >
+    </div>
+
+    <section class="filters">
+
+      <select id="classFilter" aria-label="Filter by class">
+        <option value="all">All Classes</option>
+        <option value="10">Class 10th</option>
+        <option value="12">Class 12th</option>
+        <option value="ba">BA</option>
+      </select>
+
+      <select id="subjectFilter" aria-label="Filter by subject">
+        <option value="all">All Subjects</option>
+        <option value="science">Science</option>
+        <option value="physics">Physics</option>
+        <option value="chemistry">Chemistry</option>
+        <option value="maths">Maths</option>
+        <option value="history">History</option>
+      </select>
+
+      <select id="typeFilter" aria-label="Filter by note type">
+        <option value="all">Free + Premium</option>
+        <option value="free">Free Notes</option>
+        <option value="premium">Premium Notes</option>
+      </select>
+
+    </section>
+
+    <h2 class="section-heading">📖 Available Study Materials</h2>
+
+    <section class="notes-grid" id="notesGrid">
+
+      <article class="note-card"
+        data-class="10"
+        data-subject="science"
+        data-type="free">
+
+        <div class="note-icon">🔬</div>
+        <span class="badge free">FREE</span>
+        <h3>Class 10 Science</h3>
+        <p>Class 10 Science study material and important questions.</p>
+
+        <button class="note-button"
+          data-note="Class 10 Science">
+          View Notes
+        </button>
+      </article>
+
+      <article class="note-card"
+        data-class="12"
+        data-subject="physics"
+        data-type="free">
+
+        <div class="note-icon">⚡</div>
+        <span class="badge free">FREE</span>
+        <h3>Class 12 Physics</h3>
+        <p>Physics formulas, important questions and revision notes.</p>
+
+        <button class="note-button"
+          data-note="Class 12 Physics">
+          View Notes
+        </button>
+      </article>
+
+      <article class="note-card"
+        data-class="12"
+        data-subject="chemistry"
+        data-type="free">
+
+        <div class="note-icon">🧪</div>
+        <span class="badge free">FREE</span>
+        <h3>Class 12 Chemistry</h3>
+        <p>Chemistry revision material and important questions.</p>
+
+        <button class="note-button"
+          data-note="Class 12 Chemistry">
+          View Notes
+        </button>
+      </article>
+
+      <article class="note-card"
+        data-class="12"
+        data-subject="maths"
+        data-type="premium">
+
+        <div class="note-icon">📐</div>
+        <span class="badge premium">PREMIUM</span>
+        <h3>Class 12 Maths</h3>
+        <p>Premium Maths notes and exam preparation material.</p>
+
+        <button class="note-button premium-button"
+          data-note="Class 12 Maths">
+          View Details
+        </button>
+      </article>
+
+      <article class="note-card"
+        data-class="ba"
+        data-subject="history"
+        data-type="premium">
+
+        <div class="note-icon">📜</div>
+        <span class="badge premium">PREMIUM</span>
+        <h3>BA History</h3>
+        <p>History notes for BA students.</p>
+
+        <button class="note-button premium-button"
+          data-note="BA History">
+          View Details
+        </button>
+      </article>
+
+    </section>
+
+    <div id="emptyMessage" class="empty-message">
+      😕 No notes found. Try another search.
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <h2>📚 Study Notes Hub</h2>
+      <p>Study smart. Keep learning.</p>
+    </div>
+  </footer>
+
+  <script src="notes.js"></script>
+
+</body>
+</html>

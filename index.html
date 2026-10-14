@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Study Notes Hub - Class 10, Class 12 and BA notes, study material and exam preparation resources.">
+
+  <title>Study Notes Hub | Free & Premium Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">📚</span>
+      <span>Study Notes <strong>Hub</strong></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="navigation" id="navigation">
+      <a href="#home">Home</a>
+      <a href="#classes">Classes</a>
+      <a href="#free-notes">Free Notes</a>
+      <a href="#premium-notes">Premium Notes</a>
+      <a href="login.html" class="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="badge">YOUR LEARNING PARTNER</span>
+
+        <h1>Study Smarter.<br><span>Achieve More.</span></h1>
+
+        <p>
+          Find useful study notes, important questions and revision
+          material for Class 10th, Class 12th and BA.
+        </p>
+
+        <form class="search-box" id="searchForm">
+          <span aria-hidden="true">🔎</span>
+          <input type="search" id="searchInput"
+            placeholder="Search notes, subjects or classes..."
+            aria-label="Search notes">
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="hero-points">
+          <span>📘 Free Notes</span>
+          <span>⭐ Premium Notes</span>
+          <span>🎯 Exam Preparation</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="book-circle">📚</div>
+
+        <div class="floating-card card-one">
+          <span>📖</span>
+          <div>
+            <strong>Smart Notes</strong>
+            <small>Learn effectively</small>
+          </div>
+        </div>
+
+        <div class="floating-card card-two">
+          <span>🎓</span>
+          <div>
+            <strong>Exam Ready</strong>
+            <small>Prepare with confidence</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="classes">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">EXPLORE YOUR COURSE</span>
+          <h2>Choose Your Class</h2>
+          <p>Apni class select karke study material dekho.</p>
+        </div>
+      </div>
+
+      <div class="class-grid">
+
+        <a class="class-card" href="#notes" data-class-link="10">
+          <div class="class-icon icon-blue">📘</div>
+          <h3>Class 10th</h3>
+          <p>Maths, Science, Social Science and more.</p>
+          <span class="card-action">Explore Notes →</span>
+        </a>
+
+        <a class="class-card" href="#notes" data-class-link="12">
+          <div class="class-icon icon-purple">🎓</div>
+          <h3>Class 12th</h3>
+          <p>Physics, Chemistry, Maths and other subjects.</p>
+          <span class="card-action">Explore Notes →</span>
+        </a>
+
+        <a class="class-card" href="#notes" data-class-link="BA">
+          <div class="class-icon icon-orange">📚</div>
+          <h3>BA Courses</h3>
+          <p>Arts subjects, semester-wise notes and revision.</p>
+          <span class="card-action">Explore Notes →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="section notes-section" id="notes">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">STUDY MATERIAL</span>
+          <h2>Explore Notes</h2>
+          <p>Free aur premium study material ek jagah.</p>
+        </div>
+      </div>
+
+      <div class="filter-bar" aria-label="Filter notes">
+        <button class="filter-btn active" data-filter="all" type="button">All Notes</button>
+        <button class="filter-btn" data-filter="free" type="button">Free Notes</button>
+        <button class="filter-btn" data-filter="paid" type="button">Premium Notes</button>
+      </div>
+
+      <p id="resultsMessage" class="results-message" aria-live="polite"></p>
+
+      <div class="notes-grid" id="notesGrid">
+
+        <!-- CLASS 10 SCIENCE -->
+        <article class="note-card"
+          data-class="10" data-type="free"
+          data-search="class 10 science notes free">
+
+          <div class="note-cover cover-blue">
+            <span>🔬</span>
+            <small>CLASS 10</small>
+          </div>
+
+          <div class="note-info">
+            <span class="note-tag free-tag">FREE</span>
+            <h3>Class 10 Science Notes</h3>
+            <p>Science revision material for students.</p>
+
+            <div class="note-footer">
+              <strong>Free</strong>
+              <a href="note-details.html?note=science10" class="note-link">
+                View Details →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CLASS 12 PHYSICS -->
+        <article class="note-card"
+          data-class="12" data-type="paid"
+          data-search="class 12 physics important questions">
+
+          <div class="note-cover cover-purple">
+            <span>⚡</span>
+            <small>CLASS 12</small>
+          </div>
+
+          <div class="note-info">
+            <span class="note-tag paid-tag">PREMIUM</span>
+            <h3>Class 12 Physics Notes</h3>
+            <p>Chapter-wise revision and practice material.</p>
+
+            <div class="note-footer">
+              <strong>₹49</strong>
+              <a href="note-details.html?note=physics12" class="note-link">
+                View Details →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CLASS 12 CHEMISTRY -->
+        <article class="note-card"
+          data-class="12" data-type="free"
+          data-search="class 12 chemistry revision notes">
+
+          <div class="note-cover cover-green">
+            <span>🧪</span>
+            <small>CLASS 12</small>
+          </div>
+
+          <div class="note-info">
+            <span class="note-tag free-tag">FREE</span>
+            <h3>Class 12 Chemistry Notes</h3>
+            <p>Revision notes and study material.</p>
+
+            <div class="note-footer">
+              <strong>Free</strong>
+              <a href="note-details.html?note=chemistry12" class="note-link">
+                View Details →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- BA HISTORY -->
+        <article class="note-card"
+          data-class="BA" data-type="paid"
+          data-search="BA history semester notes">
+
+          <div class="note-cover cover-orange">
+            <span>🏛️</span>
+            <small>BA COURSE</small>
+          </div>
+
+          <div class="note-info">
+            <span class="note-tag paid-tag">PREMIUM</span>
+            <h3>BA History Notes</h3>
+            <p>Semester-wise history study material.</p>
+
+            <div class="note-footer">
+              <strong>₹99</strong>
+              <a href="note-details.html?note=historyBA" class="note-link">
+                View Details →
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span>🔍</span>
+        <h3>No notes found</h3>
+        <p>Try another search or select a different filter.</p>
+      </div>
+
+    </section>
+
+    <section class="cta-section" id="free-notes">
+      <div>
+        <span class="eyebrow">START LEARNING TODAY</span>
+        <h2>Good Notes. Better Preparation.</h2>
+        <p>Explore available free notes and find your next study resource.</p>
+      </div>
+
+      <a href="#notes" class="cta-button">Explore Notes →</a>
+    </section>
+
+    <section class="section premium-section" id="premium-notes">
+      <div class="premium-banner">
+        <div>
+          <span class="eyebrow">PREMIUM COLLECTION</span>
+          <h2>Find the Right Notes for Your Exams</h2>
+          <p>Explore paid study resources and revision bundles.</p>
+        </div>
+
+        <a href="#notes" class="premium-button">Browse Collection</a>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h2>Need Help?</h2>
+      <p>For notes, orders or other questions, contact the website administrator.</p>
+      <a href="mailto:contact@example.com">Contact Support</a>
+      <small>Demo email: replace contact@example.com with your own support email.</small>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a href="index.html" class="footer-logo">📚 Study Notes Hub</a>
+
+    <p>Study smart. Keep learning.</p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#classes">Classes</a>
+      <a href="#notes">Notes</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <p class="copyright">
+      © <span id="currentYear"></span> Study Notes Hub.
+      All rights reserved.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

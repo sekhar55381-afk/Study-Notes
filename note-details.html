@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="View study notes, important questions and revision material on Study Notes Hub."
+  >
+
+  <title>Notes Details | Study Notes Hub</title>
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --background: #f5f7ff;
+      --text: #172033;
+      --muted: #64748b;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --green: #15803d;
+      --shadow: 0 12px 35px rgba(31, 41, 55, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .header-link {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .page {
+      width: min(1000px, 92%);
+      margin: 45px auto;
+    }
+
+    .breadcrumb {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+    }
+
+    .details-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .cover {
+      padding: 40px 25px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    }
+
+    .cover.free {
+      background: linear-gradient(135deg, #047857, #10b981);
+    }
+
+    .cover.history {
+      background: linear-gradient(135deg, #c2410c, #f59e0b);
+    }
+
+    .cover-icon {
+      font-size: 58px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .cover-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 32px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 30px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .badge.free-badge {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    h1 {
+      font-size: clamp(26px, 5vw, 38px);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .description {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .price-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 28px;
+    }
+
+    .price-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 29px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .feature-heading {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .features {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .features li {
+      color: #334155;
+      padding-left: 29px;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .action-button {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .action-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .notice {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    .not-found {
+      text-align: center;
+      background: white;
+      padding: 45px 25px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .not-found h1 {
+      margin-bottom: 12px;
+    }
+
+    .not-found p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .footer {
+      padding: 25px 15px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        padding: 14px 5%;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .page {
+        margin: 25px auto;
+      }
+
+      .cover {
+        padding: 30px 20px;
+      }
+
+      .content {
+        padding: 22px 18px;
+      }
+
+      .price-box {
+        padding: 15px;
+      }
+
+      .price {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html" class="logo">
+      📚 Study Notes <span>Hub</span>
+    </a>
+
+    <a href="index.html" class="header-link">
+      ← Back to Home
+    </a>
+  </header>
+
+  <main class="page">
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      &nbsp; / &nbsp;
+      <a href="index.html#notes">Notes</a>
+      &nbsp; / &nbsp;
+      Details
+    </div>
+
+    <div id="detailsContainer" aria-live="polite"></div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="currentYear"></span> Study Notes Hub.</p>
+    <p>Study smart. Keep learning.</p>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const notes = {
+      science10: {
+        title: "Class 10 Science Notes",
+        icon: "🔬",
+        label: "CLASS 10",
+        category: "Class 10",
+        type: "free",
+        price: "Free",
+        description:
+          "Class 10 Science ke revision aur exam preparation ke liye study material.",
+        features: [
+          "Science revision material",
+          "Exam preparation support",
+          "Student-friendly study resources"
+        ]
+      },
+
+      physics12: {
+        title: "Class 12 Physics Notes",
+        icon: "⚡",
+        label: "CLASS 12",
+        category: "Class 12",
+        type: "premium",
+        price: "₹49",
+        description:
+          "Class 12 Physics ke chapter-wise revision aur practice material.",
+        features: [
+          "Chapter-wise revision material",
+          "Important questions practice",
+          "Board exam preparation resources"
+        ]
+      },
+
+      chemistry12: {
+        title: "Class 12 Chemistry Notes",
+        icon: "🧪",
+        label: "CLASS 12",
+        category: "Class 12",
+        type: "free",
+        price: "Free",
+        description:
+          "Class 12 Chemistry ke revision aur study practice ke liye material.",
+        features: [
+          "Chemistry revision material",
+          "Study and practice resources",
+          "Exam preparation support"
+        ]
+      },
+
+      historyBA: {
+        title: "BA History Notes",
+        icon: "🏛️",
+        label: "BA COURSE",
+        category: "BA",
+        type: "premium",
+        price: "₹99",
+        description:
+          "BA History students ke liye semester-wise study material.",
+        features: [
+          "History study resources",
+          "Semester-wise learning material",
+          "Revision and exam preparation support"
+        ]
+      }
+    };
+
+    const container = document.getElementById("detailsContainer");
+    const currentYear = document.getElementById("currentYear");
+
+    currentYear.textContent = new Date().getFullYear();
+
+    function showNotFound() {
+      container.innerHTML = `
+        <section class="not-found">
+          <h1>Notes Not Found 😕</h1>
+          <p>
+            Ye notes ID valid nahi hai. Homepage par jaakar
+            available notes mein se select karo.
+          </p>
+          <a class="action-button" href="index.html#notes">
+            Browse All Notes
+          </a>
+        </section>
+      `;
+    }
+
+    function renderNote(note) {
+      const isFree = note.type === "free";
+
+      const coverClass = isFree
+        ? "cover free"
+        : note.category === "BA"
+          ? "cover history"
+          : "cover";
+
+      const badgeClass = isFree
+        ? "badge free-badge"
+        : "badge";
+
+      const featureItems = note.features
+        .map(function (feature) {
+          return `<li>${feature}</li>`;
+        })
+        .join("");
+
+      const buttonText = isFree
+        ? "Check Free Notes Availability"
+        : "Premium Access — Coming Soon";
+
+      container.innerHTML = `
+        <article class="details-card">
+
+          <div class="${coverClass}">
+            <span class="cover-icon">${note.icon}</span>
+            <span class="cover-label">${note.label}</span>
+          </div>
+
+          <div class="content">
+
+            <div class="badges">
+              <span class="${badgeClass}">
+                ${isFree ? "FREE NOTES" : "PREMIUM NOTES"}
+              </span>
+
+              <span class="badge">${note.category}</span>
+            </div>
+
+            <h1>${note.title}</h1>
+
+            <p class="description">${note.description}</p>
+
+            <div class="price-box">
+              <div>
+                <div class="price-label">Notes Price</div>
+                <div class="price">${note.price}</div>
+              </div>
+
+              <span>${isFree ? "📘 Free Access" : "⭐ Premium"}</span>
+            </div>
+
+            <h2 class="feature-heading">What you'll find</h2>
+
+            <ul class="features">
+              ${featureItems}
+            </ul>
+
+            <button
+              type="button"
+              class="action-button"
+              id="accessButton"
+            >
+              ${buttonText}
+            </button>
+
+            <p class="notice" id="accessNotice">
+              ${isFree
+                ? "PDF download abhi connect nahi hua hai."
+                : "Premium payment aur secure access abhi setup nahi hua hai."}
+            </p>
+
+          </div>
+        </article>
+      `;
+
+      const accessButton = document.getElementById("accessButton");
+      const accessNotice = document.getElementById("accessNotice");
+
+      accessButton.addEventListener("click", function () {
+        accessNotice.textContent = isFree
+          ? "Ye notes details page hai. PDF upload aur download feature agle step mein connect karenge."
+          : "Premium purchase abhi available nahi hai. Payment karne se pehle official purchase system setup karna zaroori hai.";
+
+        accessNotice.setAttribute("role", "status");
+      });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const noteId = params.get("note");
+    const selectedNote = noteId ? notes[noteId] : null;
+
+    if (selectedNote) {
+      renderNote(selectedNote);
+    } else {
+      showNotFound();
+    }
+  </script>
+
+</body>
+</html>

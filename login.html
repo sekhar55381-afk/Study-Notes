@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Create an account or sign in to Study Notes Hub."
+  >
+
+  <title>Student Login | Study Notes Hub</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .auth-page {
+      min-height: 75vh;
+      display: grid;
+      place-items: center;
+      padding: 35px 16px;
+      background: linear-gradient(135deg, #eef2ff, #f8faff);
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 430px;
+      padding: 30px;
+      background: #fff;
+      border: 1px solid #e5eaf3;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(30, 41, 59, 0.09);
+    }
+
+    .auth-logo {
+      text-align: center;
+      font-size: 35px;
+    }
+
+    .auth-card h1 {
+      margin: 8px 0;
+      text-align: center;
+      font-size: 27px;
+    }
+
+    .auth-description {
+      margin: 0 0 25px;
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .auth-form label {
+      display: block;
+      margin: 15px 0 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .auth-form input {
+      width: 100%;
+      min-height: 45px;
+      padding: 11px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      background: #fff;
+      color: #172033;
+    }
+
+    .password-row {
+      display: flex;
+      gap: 7px;
+    }
+
+    .password-row input {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .show-password {
+      padding: 0 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      background: #f8fafc;
+      cursor: pointer;
+    }
+
+    .auth-submit {
+      width: 100%;
+      min-height: 46px;
+      margin-top: 22px;
+      border: 0;
+      border-radius: 9px;
+      background: #4f46e5;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .auth-submit:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .auth-switch {
+      margin: 20px 0 0;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .auth-switch button {
+      border: 0;
+      background: none;
+      color: #4f46e5;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .auth-message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .auth-message:empty {
+      display: none;
+    }
+
+    .auth-message.error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .auth-message.success {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .auth-message.info {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .back-home {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #4f46e5;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">📚</span>
+      <span>Study Notes <strong>Hub</strong></span>
+    </a>
+  </header>
+
+  <main class="auth-page">
+    <section class="auth-card">
+
+      <div class="auth-logo">📚</div>
+
+      <h1 id="formTitle">Welcome Back!</h1>
+
+      <p class="auth-description" id="formDescription">
+        Login to access your study resources.
+      </p>
+
+      <form class="auth-form" id="authForm">
+
+        <div id="nameGroup" hidden>
+          <label for="fullName">Full Name</label>
+
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            maxlength="80"
+            autocomplete="name"
+            placeholder="Enter your full name"
+          >
+        </div>
+
+        <label for="email">Email Address</label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          maxlength="254"
+          placeholder="you@example.com"
+          required
+        >
+
+        <label for="password">Password</label>
+
+        <div class="password-row">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="current-password"
+            minlength="6"
+            maxlength="128"
+            placeholder="Enter your password"
+            required
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            id="showPassword"
+            aria-label="Show password"
+            aria-pressed="false"
+          >
+            Show
+          </button>
+        </div>
+
+        <button
+          type="submit"
+          class="auth-submit"
+          id="submitButton"
+        >
+          Login
+        </button>
+
+        <div
+          class="auth-message"
+          id="authMessage"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+      <p class="auth-switch">
+        <span id="switchText">Don't have an account?</span>
+
+        <button type="button" id="switchMode">
+          Create Account
+        </button>
+      </p>
+
+      <p class="auth-switch" id="forgotPasswordRow">
+        <button type="button" id="forgotPassword">
+          Forgot Password?
+        </button>
+      </p>
+
+      <a class="back-home" href="index.html">
+        ← Back to Home
+      </a>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html" class="footer-logo">
+      📚 Study Notes Hub
+    </a>
+
+    <p>Study smart. Keep learning.</p>
+  </footer>
+
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
